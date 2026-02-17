@@ -188,15 +188,6 @@ ul {
         padding: 1.6rem;
     }
 }
-figure {
-    margin: 1rem 0 1.6rem;
-}
-figure img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-}
 
 figure { margin: 1rem 0 1.6rem; }
 figure img { display: block; width: 100%; height: auto; border-radius: 10px; }
@@ -204,8 +195,6 @@ figure > figcaption { margin-top: .5rem; color: rgba(255,255,255,.78); font-size
 .figure-card {
     display: inline-block;
     padding: 10px;
-    background: rgba(0, 217, 245, 0.10);
-    border: 3px solid #00d9f5;
     border-radius: 16px;
     border: 3px solid #00f5a0;
     background: rgba(0, 245, 160, 0.10);
@@ -225,7 +214,6 @@ figure > figcaption { margin-top: .5rem; color: rgba(255,255,255,.78); font-size
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 1.2rem 2rem;
-    grid-template-columns: 1fr auto; /* balra szöveg, jobbra ábra (vagy fordítva) */
     align-items: start;
     margin: 1.2rem 0 2rem;
 }

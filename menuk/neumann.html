@@ -8,8 +8,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"></head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="../site_icon.png">
+</head>
 <body>
 <nav class="menu" role="tablist" aria-label="Main Navigation">
   <a href="../pc_alkatresz.html" class="tab" role="tab" aria-selected="false">
@@ -41,22 +42,46 @@
 <main class="content">
   <section class="tab-content active">
     <h2>Neumann-elv és Számítógépes Architektura</h2>
-    <h3>Ki volt John von Neumann?</h3>
-    <p>John von Neumann (1903-1957) magyar-amerikai matematikus és fizikus volt, aki forradalmi hatással bírt a számítástechnika fejlődésére. A modern számítógépek alapelveit dolgozta ki, amelyek a mai napig használatosak.</p>
-    <h3>A Neumann-architektúra</h3>
-    <p>A Neumann-architektúra (más nevén Princeton-architektúra) a modern számítógépek alapjaként szolgál. Ez az architektúra a következő fő komponensekből áll:</p>
-    <ul>
-      <li><strong>Vezérlőegység (Control Unit)</strong> - Irányítja a program végrehajtását</li>
-      <li><strong>Aritmetikai-logikai egység (ALU)</strong> - Végrehajtja a matematikai és logikai műveletek</li>
-      <li><strong>Memória</strong> - Tárolja a program utasításait és az adatokat</li>
-      <li><strong>Bemeneti/Kimeneti egységek (I/O)</strong> - Kommunikáció a felhasználóval és külső eszközökkel</li>
-    </ul>
+
+    <h2>Neumann-elv és Számítógépes Architektúra</h2>
+
+    <div class="grid--neumann">
+      <figure class="figure-card img--neumann tag-neumann">
+        <img src="../neumann_janos.jpg" alt="">
+      </figure>
+
+      <div class="text-col">
+        <h3>Ki volt Neumann János?</h3>
+        <p>Neumann János (1903–1957) magyar–amerikai matematikus és fizikus volt, aki forradalmi hatással bírt a számítástechnika fejlődésére. A modern számítógépek alapelveit dolgozta ki, amelyek a mai napig használatosak.</p>
+      </div>
+    </div>
+
+    <div class="grid--arch">
+      <div class="text-col">
+        <h3>A Neumann-architektúra</h3>
+        <p>A Neumann-architektúra (más néven Princeton-architektúra) a modern számítógépek alapjaként szolgál. Ez az architektúra a következő fő komponensekből áll:</p>
+        <ul>
+          <li><strong>Vezérlőegység (Control Unit)</strong> – Irányítja a program végrehajtását</li>
+          <li><strong>Aritmetikai–logikai egység (ALU)</strong> – Végrehajtja a matematikai és logikai műveleteket</li>
+          <li><strong>Memória</strong> – Tárolja a program utasításait és az adatokat</li>
+          <li><strong>Bemeneti/Kimeneti egységek (I/O)</strong> – Kommunikáció a felhasználóval és külső eszközökkel</li>
+        </ul>
+      </div>
+
+      <figure class="figure-card img--arch tag-arch">
+        <img src="../Neumann_architecture.png" alt="">
+        <figcaption>A klasszikus architektúra fő egységei: memória, vezérlőegység, aritmetikai–logikai egység, bemenet és kimenet.</figcaption>
+      </figure>
+    </div>
+
     <h3>Az Összekapcsolt Memória Elve</h3>
     <p>A Neumann-elv alapvető innovációja az volt, hogy a program utasítások és az adatok ugyanabban a memóriában tárolódnak. Ez lehetővé teszi a program önmódosítást és nagyobb rugalmasságot.</p>
     <h3>Jelentőség a Modern Számítástechnikában</h3>
     <p>Szinte az összes mai számítógép, laptop, mobiltelefon és beágyazott rendszer a Neumann-architektúrán alapul. Ez a klasszikus tervezés robusztus, hatékony és könnyen érthető, ezért időtálló megoldásnak bizonyult.</p>
+
   </section>
 </main>
+
 <div class="bg-blobs">
   <span></span>
   <span></span>

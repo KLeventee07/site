@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CPU - PC alkatrészek</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../site_icon.png">
+</head>
+<body>
+<nav class="menu" role="tablist" aria-label="Main Navigation">
+  <a href="index.html" class="tab active" role="tab" aria-selected="true">
+    <i class="fa-solid fa-house"></i><span>Menü</span>
+  </a>
+  <a href="neumann/neumann.html" class="tab" role="tab" aria-selected="false">
+    <i class="fa-solid fa-brain"></i><span>Neumann</span>
+  </a>
+  <a href="alap/alaplap.html" class="tab" role="tab" aria-selected="false">
+    <i class="fa-solid fa-microchip"></i><span>Alaplap</span>
+  </a>
+  <a href="cpu/cpu.html" class="tab" role="tab" aria-selected="false">
+    <i class="fa-solid fa-gears"></i><span>CPU</span>
+  </a>
+  <a href="venti/hutes.html" class="tab" role="tab" aria-selected="false">
+    <i class="fa-solid fa-fan"></i><span>Hűtés</span>
+  </a>
+  <a href="ram/ram.html" class="tab" role="tab" aria-selected="false">
+    <i class="fa-solid fa-memory"></i><span>RAM</span>
+  </a>
+  <a href="gpu/gpu.html" class="tab" role="tab" aria-selected="false">
+    <i class="fa-solid fa-vr-cardboard"></i><span>Videókártya</span>
+  </a>
+  <a href="tarhely/merevlemez.html" class="tab" role="tab" aria-selected="false">
+    <i class="fa-solid fa-hard-drive"></i><span>Merevlemezek</span>
+  </a>
+</nav>
+
+<main class="content">
+  <section class="tab-content active">
+    <h2>CPU - Központi Feldolgozó Egység</h2>
+    <h3>Mi az a CPU?</h3>
+    <figure class="figure-card img--cpu tag-cpu">
+      <img src="cpu.jpg" height="461" width="820"/>
+    </figure>
+      <p>A CPU (Central Processing Unit) a számítógép agya. Ez az egység végzi az összes számítási műveletet, és irányítja a program végrehajtást. Minél gyorsabb és képesebb a CPU, annál jobban teljesít a gép.</p>
+    <h3>CPU Paraméterek</h3>
+    <ul>
+      <li><strong>Magok (Cores)</strong> - A processzorok száma az egy chipen. Több mag = jobb multi-tasking</li>
+      <li><strong>Szálak (Threads)</strong> - Egy mag több szálat kezelhet, növelve a teljesítményt</li>
+      <li><strong>Órajel (GHz)</strong> - Az órajel sebessége. Magasabb = gyorsabb műveletek</li>
+      <li><strong>Cache</strong> - Gyors memória a CPU-n belül, az adatok gyorsabb eléréshez</li>
+      <li><strong>TDP (Thermal Design Power)</strong> - Maximális hőelvezetési kapacitás Wattban</li>
+    </ul>
+    <h3>CPU Gyártók és Sorozatok</h3>
+    <figure class="figure-card img--amd_intel tag-amd_intel">
+      <img src="amd_vs_intel.jpg" height="382" width="640"/>
+    </figure>
+    <ul>
+      <li><strong>Intel</strong> - Core i3, i5, i7, i9 sorozatok; illetve Xeon szerverekhez</li>
+      <li><strong>AMD</strong> - Ryzen 3, 5, 7, 9 sorozatok; valamint EPYC szerverekhez</li>
+    </ul>
+    <h3>CPU Kiválasztása</h3>
+    <ul>
+      <li><strong>Irodai munka:</strong> Intel i3 vagy AMD Ryzen 3</li>
+      <li><strong>Gaming és fejlesztés:</strong> Intel i5/i7 vagy AMD Ryzen 5/7</li>
+      <li><strong>Professzionális munka (3D, video):</strong> Intel i9 vagy AMD Ryzen 9</li>
+    </ul>
+  </section>
+</main>
+<div class="bg-blobs">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<footer>
+  <p>&copy; 2026 KLeventee_07</p>
+</footer>
+</body>
+</html>

@@ -10,76 +10,63 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="../site_icon.png">
+  <script src="../script.js"></script></head>
 </head>
 <body>
 <nav class="menu" role="tablist" aria-label="Main Navigation">
-  <a href="index.html" class="tab active" role="tab" aria-selected="true">
-    <i class="fa-solid fa-house"></i><span>Menü</span>
-  </a>
-  <a href="neumann/neumann.html" class="tab" role="tab" aria-selected="false">
-    <i class="fa-solid fa-brain"></i><span>Neumann</span>
-  </a>
-  <a href="alap/alaplap.html" class="tab" role="tab" aria-selected="false">
-    <i class="fa-solid fa-microchip"></i><span>Alaplap</span>
-  </a>
-  <a href="cpu/cpu.html" class="tab" role="tab" aria-selected="false">
-    <i class="fa-solid fa-gears"></i><span>CPU</span>
-  </a>
-  <a href="venti/hutes.html" class="tab" role="tab" aria-selected="false">
-    <i class="fa-solid fa-fan"></i><span>Hűtés</span>
-  </a>
-  <a href="ram/ram.html" class="tab" role="tab" aria-selected="false">
-    <i class="fa-solid fa-memory"></i><span>RAM</span>
-  </a>
-  <a href="gpu/gpu.html" class="tab" role="tab" aria-selected="false">
-    <i class="fa-solid fa-vr-cardboard"></i><span>Videókártya</span>
-  </a>
-  <a href="tarhely/merevlemez.html" class="tab" role="tab" aria-selected="false">
-    <i class="fa-solid fa-hard-drive"></i><span>Merevlemezek</span>
-  </a>
+  <a href="../index.html" class="tab"><i class="fa-solid fa-house"></i><span>Menü</span></a>
+  <a href="../neumann/neumann.html" class="tab"><i class="fa-solid fa-brain"></i><span>Neumann</span></a>
+  <a href="alaplap.html" class="tab" class="active"><i class="fa-solid fa-microchip"></i><span>Alaplap</span></a>
+  <a href="../cpu/cpu.html" class="tab"><i class="fa-solid fa-gears"></i><span>CPU</span></a>
+  <a href="../venti/hutes.html" class="tab"><i class="fa-solid fa-fan"></i><span>Hűtés</span></a>
+  <a href="../ram/ram.html" class="tab"><i class="fa-solid fa-memory"></i><span>RAM</span></a>
+  <a href="../gpu/gpu.html" class="tab"><i class="fa-solid fa-vr-cardboard"></i><span>Videókártya</span></a>
+  <a href="../tarhely/merevlemez.html" class="tab"><i class="fa-solid fa-hard-drive"></i><span>Merevlemezek</span></a>
 </nav>
 
 <main class="content">
   <section class="tab-content active">
-    <h2>Alaplap (Motherboard)</h2>
-    <h3>Mi az a Motherboard?</h3>
-    <figure class="figure-card img--alaplap tag-alaplap">
-      <img src="motherboard.jpg" height="949" width="1395"/>
-    </figure>
-    <p>Az alaplap a számítógép szíve, amely összeköti az összes komponenst. Ez az alapvető áramkör, amely lehetővé teszi a CPU, RAM, videókártya és egyéb eszközök közötti kommunikációt.</p>
-    <h3>Az Alaplap Fő Összetevői</h3>
-    <figure class="figure-card img--alaplap tag-alaplap">
-      <img src="alaplap.png" height="964" width="1920"/>
-    </figure>
-    <ul>
-      <li><strong>Chipset</strong> - Szabályozza az adatáramlást az összes komponens között</li>
-      <li><strong>BIOS/UEFI</strong> - A firmware, amely az operációs rendszer betöltésétől felelős</li>
-      <li><strong>RAM Foglalatok</strong> - A memória csatlakozási pontjai</li>
-      <li><strong>CPU Socket</strong> - A processzor csatlakozási helyei</li>
-      <li><strong>Tápellátás Csatlakozók</strong> - Az elektromos energia elosztásához</li>
-      <li><strong>PCI/PCIe Foglalatok</strong> - Bővítőkártyákhoz (videókártya, hang, hálózat)</li>
-      <li><strong>SATA Portok</strong> - Merevlemezek és SSD-k csatlakoztatásához</li>
-    </ul>
-    <h3>Alaplap Típusai</h3>
-    <ul>
-      <li><strong>ATX</strong> - Szabványos méret, legtöbb feladat számára ideális</li>
-      <li><strong>Micro-ATX</strong> - Kisebb méret, kompakt építésekhez</li>
-      <li><strong>Mini-ITX</strong> - Apró méret, nagyon kompakt rendszerekhez</li>
-    </ul>
-    <figure class="figure-card img--meret tag-meret">
-      <img src="meret.jpg" height="216" width="423"/>
-    </figure>
+    <h2 data-text="Alaplap (Motherboard)">Alaplap (Motherboard)</h2>
+    <div class="layout-left">
+      <div class="text-block">
+        <h3>Mi az a Motherboard?</h3>
+        <p>Az alaplap a számítógép szíve, amely összeköti az összes komponenst. Ez az alapvető áramkör, amely lehetővé teszi a CPU, RAM, videókártya és egyéb eszközök közötti kommunikációt.</p>
+      </div>
+      <figure class="figure-card"><img src="motherboard.jpg"/></figure>
+    </div>
+    <div class="layout-right">
+      <div class="text-block">
+        <h3>Az Alaplap Fő Összetevői</h3>
+        <ul>
+          <li><strong>Chipset</strong> - Szabályozza az adatáramlást az összes komponens között</li>
+          <li><strong>BIOS/UEFI</strong> - A firmware, amely az operációs rendszer betöltésétől felelős</li>
+          <li><strong>RAM Foglalatok</strong> - A memória csatlakozási pontjai</li>
+          <li><strong>CPU Socket</strong> - A processzor csatlakozási helyei</li>
+          <li><strong>Tápellátás Csatlakozók</strong> - Az elektromos energia elosztásához</li>
+          <li><strong>PCI/PCIe Foglalatok</strong> - Bővítőkártyákhoz (videókártya, hang, hálózat)</li>
+          <li><strong>SATA Portok</strong> - Merevlemezek és SSD-k csatlakoztatásához</li>
+        </ul>
+      </div>
+      <figure class="figure-card"><img src="alaplap.png"/></figure>
+    </div>
+    <div class="layout-right">
+      <div class="text-block">
+        <h3>Alaplap Típusai</h3>
+        <ul>
+          <li><strong>ATX</strong> - Szabványos méret, legtöbb feladat számára ideális</li>
+          <li><strong>Micro-ATX</strong> - Kisebb méret, kompakt építésekhez</li>
+          <li><strong>Mini-ITX</strong> - Apró méret, nagyon kompakt rendszerekhez</li>
+        </ul>
+      </div>
+      <figure class="figure-card"><img src="meret.jpg"/></figure>
+    </div>
     <h3>Gyártók és Minőség</h3>
     <p>A legismertebb gyártók: <strong><a href="https://www.asus.com/motherboards-components/motherboards/all-series/" target="_blank">ASUS</a>, <a href="https://www.msi.com/Motherboards" target="_blank">MSI</a>, <a href="https://www.gigabyte.com/Motherboard" target="_blank">Gigabyte</a>, <a href="https://www.asrock.com/mb/" target="_blank">ASRock</a></strong>. Válassz megbízható márkákat, mivel az alaplap a hosszútávú stabilság kulcsa.</p>
   </section>
 </main>
-<div class="bg-blobs">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
+
 <footer>
-  <p>&copy; 2026 KLeventee_07</p>
+  <a href="https://www.youtube.com/@KiralyOIL?sub_confirmation=1" target="_blank"> © 2026 KLeventee_07</a>
 </footer>
 </body>
 </html>

@@ -10,49 +10,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="../site_icon.png">
+  <script src="../script.js"></script></head>
 </head>
 <body>
 <nav class="menu" role="tablist" aria-label="Main Navigation">
-  <a href="index.html" class="tab active" role="tab" aria-selected="true">
-    <i class="fa-solid fa-house"></i><span>Menü</span>
-  </a>
-  <a href="neumann/neumann.html" class="tab" role="tab" aria-selected="false">
-    <i class="fa-solid fa-brain"></i><span>Neumann</span>
-  </a>
-  <a href="alap/alaplap.html" class="tab" role="tab" aria-selected="false">
-    <i class="fa-solid fa-microchip"></i><span>Alaplap</span>
-  </a>
-  <a href="cpu/cpu.html" class="tab" role="tab" aria-selected="false">
-    <i class="fa-solid fa-gears"></i><span>CPU</span>
-  </a>
-  <a href="venti/hutes.html" class="tab" role="tab" aria-selected="false">
-    <i class="fa-solid fa-fan"></i><span>Hűtés</span>
-  </a>
-  <a href="ram/ram.html" class="tab" role="tab" aria-selected="false">
-    <i class="fa-solid fa-memory"></i><span>RAM</span>
-  </a>
-  <a href="gpu/gpu.html" class="tab" role="tab" aria-selected="false">
-    <i class="fa-solid fa-vr-cardboard"></i><span>Videókártya</span>
-  </a>
-  <a href="tarhely/merevlemez.html" class="tab" role="tab" aria-selected="false">
-    <i class="fa-solid fa-hard-drive"></i><span>Merevlemezek</span>
-  </a>
+  <a href="../index.html" class="tab"><i class="fa-solid fa-house"></i><span>Menü</span></a>
+  <a href="neumann.html" class="tab" class="active"><i class="fa-solid fa-brain"></i><span>Neumann</span></a>
+  <a href="../alap/alaplap.html" class="tab"><i class="fa-solid fa-microchip"></i><span>Alaplap</span></a>
+  <a href="../cpu/cpu.html" class="tab"><i class="fa-solid fa-gears"></i><span>CPU</span></a>
+  <a href="../venti/hutes.html" class="tab"><i class="fa-solid fa-fan"></i><span>Hűtés</span></a>
+  <a href="../ram/ram.html" class="tab"><i class="fa-solid fa-memory"></i><span>RAM</span></a>
+  <a href="../gpu/gpu.html" class="tab"><i class="fa-solid fa-vr-cardboard"></i><span>Videókártya</span></a>
+  <a href="../tarhely/merevlemez.html" class="tab"><i class="fa-solid fa-hard-drive"></i><span>Merevlemezek</span></a>
 </nav>
 
 <main class="content">
   <section class="tab-content active">
-    <h2>Neumann-elv és Számítógépes Architektúra</h2>
-    <div class="grid--neumann">
-      <figure class="figure-card img--neumann tag-neumann">
-        <img src="neumann_janos.jpg" alt="">
-      </figure>
-      <div class="text-col">
+    <h2 data-text="Neumann-elv és Számítógépes Architektúra">Neumann-elv és Számítógépes Architektúra</h2>
+    <div class="layout-left">
+      <div class="text-block">
         <h3>Ki volt Neumann János?</h3>
         <p>Neumann János (1903–1957) magyar–amerikai matematikus és fizikus volt, aki forradalmi hatással bírt a számítástechnika fejlődésére. A modern számítógépek alapelveit dolgozta ki, amelyek a mai napig használatosak.</p>
       </div>
+      <figure class="figure-card"><img src="neumann_janos.jpg"/></figure>
     </div>
-    <div class="grid--arch">
-      <div class="text-col">
+    <div class="layout-right">
+      <div class="text-block">
         <h3>A Neumann-architektúra</h3>
         <p>A Neumann-architektúra (más néven Princeton-architektúra) a modern számítógépek alapjaként szolgál. Ez az architektúra a következő fő komponensekből áll:</p>
         <ul>
@@ -62,9 +45,7 @@
           <li><strong>Bemeneti/Kimeneti egységek (I/O)</strong> – Kommunikáció a felhasználóval és külső eszközökkel</li>
         </ul>
       </div>
-      <figure class="figure-card img--arch tag-arch">
-        <img src="Neumann_architecture.png" alt="">
-      </figure>
+      <figure class="figure-card"><img src="Neumann_architecture.png"/></figure>
     </div>
     <h3>Az Összekapcsolt Memória Elve</h3>
     <p>A Neumann-elv alapvető innovációja az volt, hogy a program utasítások és az adatok ugyanabban a memóriában tárolódnak. Ez lehetővé teszi a program önmódosítást és nagyobb rugalmasságot.</p>
@@ -72,13 +53,15 @@
     <p>Szinte az összes mai számítógép, laptop, mobiltelefon és beágyazott rendszer a Neumann-architektúrán alapul. Ez a klasszikus tervezés robusztus, hatékony és könnyen érthető, ezért időtálló megoldásnak bizonyult.</p>
   </section>
 </main>
+
 <div class="bg-blobs">
   <span></span>
   <span></span>
   <span></span>
 </div>
+
 <footer>
-  <p>&copy; 2026 KLeventee_07</p>
+  <a href="https://www.youtube.com/@KiralyOIL?sub_confirmation=1" target="_blank"> © 2026 KLeventee_07</a>
 </footer>
 </body>
 </html>

@@ -2,11 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const menu = document.querySelector(".menu");
     const links = Array.from(document.querySelectorAll(".menu a"));
     if (!menu || !links.length) return;
-    const getDir = () => {
-        const dir = (menu?.dir || document.documentElement.dir || "ltr").toLowerCase();
-        return dir === "rtl" ? "rtl" : "ltr";
-    };
-    const isRTL = getDir() === "rtl";
+    const isRTL = (menu?.dir || document.documentElement.dir || "ltr").toLowerCase() === "rtl";
     const leftKey  = isRTL ? "ArrowRight" : "ArrowLeft";
     const rightKey = isRTL ? "ArrowLeft"  : "ArrowRight";
     const normalizePath = (urlStr) => {
@@ -41,10 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     const isTextInputFocused = () => {
         const el = document.activeElement;
-        return el && (
-            ["INPUT", "TEXTAREA", "SELECT"].includes(el.tagName) ||
-            el.isContentEditable
-        );
+        return el && (["INPUT","TEXTAREA","SELECT"].includes(el.tagName) || el.isContentEditable);
     };
     const goTo = (index) => {
         if (!links[index]) return;
@@ -54,6 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
             links[index].focus({ preventScroll: true });
         }
         activeIndex = index;
+    };
+    const navigateTo = (index) => {
+        if (!links[index]) return;
+        goTo(index);
+        window.location.href = links[index].href;
     };
 
     document.addEventListener("keydown", (e) => {
@@ -73,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const index = parseInt(e.key, 10) - 1;
             if (links[index]) {
                 e.preventDefault();
-                links[index].click();
+                navigateTo(index);
             }
             return;
         }
@@ -81,22 +79,22 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentIndex === -1) currentIndex = activeIndex >= 0 ? activeIndex : 0;
         if (e.key === rightKey) {
             e.preventDefault();
-            links[(currentIndex + 1) % max].click();
+            navigateTo((currentIndex + 1) % max);
             return;
         }
         if (e.key === leftKey) {
             e.preventDefault();
-            links[(currentIndex - 1 + max) % max].click();
+            navigateTo((currentIndex - 1 + max) % max);
             return;
         }
         if (e.key === "Home") {
             e.preventDefault();
-            goTo(0);
+            navigateTo(0);
             return;
         }
         if (e.key === "End") {
             e.preventDefault();
-            goTo(max - 1);
+            navigateTo(max - 1);
         }
     });
 
@@ -106,9 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let focusInside = false;
     const showMenu = () => menu.classList.remove("hidden");
     const hideMenu = () => menu.classList.add("hidden");
-    const shouldKeepVisible = () => (
-        hover || focusInside || (window.scrollY || 0) < 10
-    );
+    const shouldKeepVisible = () => hover || focusInside || (window.scrollY || 0) < 10;
     const onScroll = () => {
         const y = window.scrollY || 0;
         const delta = y - lastY;
@@ -131,13 +127,12 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", requestTick, { passive: true });
     menu.addEventListener("mouseenter", () => { hover = true; showMenu(); });
     menu.addEventListener("mouseleave", () => { hover = false; });
-    menu.addEventListener("focusin",  () => { focusInside = true; showMenu(); });
+    menu.addEventListener("focusin", () => { focusInside = true; showMenu(); });
     menu.addEventListener("focusout", (e) => {
         if (!menu.contains(e.relatedTarget)) focusInside = false;
     });
     document.addEventListener("mousemove", (e) => {
         if (e.clientY < 12) showMenu();
     }, { passive: true });
-
     requestTick();
 });

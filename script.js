@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const normalizePath = (urlStr) => {
         const url = new URL(urlStr, location.href);
         if (url.origin !== location.origin) return null;
+        if (location.protocol !== "file:" && url.origin !== location.origin) return null;
         let p = url.pathname;
         if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
         if (p.endsWith("/index.html")) p = p.slice(0, -"/index.html".length) || "/";

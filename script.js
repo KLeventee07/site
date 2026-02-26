@@ -2,13 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const menu = document.querySelector(".menu");
     const links = Array.from(document.querySelectorAll(".menu a"));
     if (!menu || !links.length) return;
-    const isRTL = (menu?.dir || document.documentElement.dir || "ltr").toLowerCase() === "rtl";
-    const leftKey  = isRTL ? "ArrowRight" : "ArrowLeft";
-    const rightKey = isRTL ? "ArrowLeft"  : "ArrowRight";
     const normalizePath = (urlStr) => {
         const url = new URL(urlStr, location.href);
         if (url.origin !== location.origin) return null;
-        if (location.protocol !== "file:" && url.origin !== location.origin) return null;
         let p = url.pathname;
         if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
         if (p.endsWith("/index.html")) p = p.slice(0, -"/index.html".length) || "/";
@@ -74,27 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 navigateTo(index);
             }
             return;
-        }
-        let currentIndex = links.indexOf(document.activeElement);
-        if (currentIndex === -1) currentIndex = activeIndex >= 0 ? activeIndex : 0;
-        if (e.key === rightKey) {
-            e.preventDefault();
-            navigateTo((currentIndex + 1) % max);
-            return;
-        }
-        if (e.key === leftKey) {
-            e.preventDefault();
-            navigateTo((currentIndex - 1 + max) % max);
-            return;
-        }
-        if (e.key === "Home") {
-            e.preventDefault();
-            navigateTo(0);
-            return;
-        }
-        if (e.key === "End") {
-            e.preventDefault();
-            navigateTo(max - 1);
         }
     });
     let lastY = window.scrollY || 0;

@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
         goTo(index);
         window.location.href = links[index].href;
     };
-
     document.addEventListener("keydown", (e) => {
         if (isTextInputFocused()) return;
         if (e.ctrlKey || e.altKey || e.metaKey) return;
@@ -97,7 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
             navigateTo(max - 1);
         }
     });
-
     let lastY = window.scrollY || 0;
     let ticking = false;
     let hover = false;
@@ -122,7 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     };
-
     window.addEventListener("scroll", requestTick, { passive: true });
     window.addEventListener("resize", requestTick, { passive: true });
     menu.addEventListener("mouseenter", () => { hover = true; showMenu(); });
@@ -134,5 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("mousemove", (e) => {
         if (e.clientY < 12) showMenu();
     }, { passive: true });
+
     requestTick();
 });

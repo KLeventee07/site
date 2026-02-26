@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!el) return false;
         const tag = el.tagName;
         if (["INPUT", "TEXTAREA", "SELECT"].includes(tag)) return true;
-        if (el.isContentEditable || el.getAttribute("contenteditable") === "true") return true;
-        return false;
+        return el.isContentEditable || el.getAttribute("contenteditable") === "true";
+
     };
     const goTo = (index) => {
         if (!links[index]) return;
@@ -66,11 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         activeIndex = index;
     };
-
     const navigateTo = (index) => {
         if (!links[index]) return;
         goTo(index);
-        // Navigate to the link's href
         window.location.href = links[index].href;
     };
 
@@ -102,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         if (e.key === "Home") { e.preventDefault(); navigateTo(0); return; }
-        if (e.key === "End") { e.preventDefault(); navigateTo(max - 1); return; }
+        if (e.key === "End") { e.preventDefault(); navigateTo(max - 1);  }
     });
     let lastY = window.scrollY || 0;
     let ticking = false;
@@ -113,8 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const shouldKeepVisible = () => {
         if (hover) return true;
         if (focusInside) return true;
-        if ((window.scrollY || 0) < 10) return true;
-        return false;
+        return (window.scrollY || 0) < 10;
+
     };
     const onScroll = () => {
         const y = window.scrollY || 0;
@@ -122,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lastY = y;
         if (shouldKeepVisible()) { showMenu(); return; }
         if (delta > 2) { hideMenu(); return; }
-        if (delta < -2) { showMenu(); return; }
+        if (delta < -2) { showMenu();  }
     };
     const requestTick = () => {
         if (ticking) return;

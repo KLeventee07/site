@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
             links[index].focus({ preventScroll: true });
         }
         activeIndex = index;
-        window.location.href = links[index].href;
     };
 
     document.addEventListener("keydown", (e) => {
@@ -76,8 +75,18 @@ document.addEventListener("DOMContentLoaded", () => {
             const index = parseInt(e.key, 10) - 1;
             if (links[index]) { e.preventDefault(); goTo(index); return; }
         }
-        if (e.key === rightKey) { e.preventDefault(); goTo((Math.max(activeIndex, 0) + 1) % max); return; }
-        if (e.key === leftKey) { e.preventDefault(); goTo((Math.max(activeIndex, 0) - 1 + max) % max); return; }
+        if (e.key === rightKey) {
+            e.preventDefault();
+            const currentIndex = activeIndex >= 0 ? activeIndex : 0;
+            goTo((currentIndex + 1) % max);
+            return;
+        }
+        if (e.key === leftKey) {
+            e.preventDefault();
+            const currentIndex = activeIndex >= 0 ? activeIndex : 0;
+            goTo((currentIndex - 1 + max) % max);
+            return;
+        }
         if (e.key === "Home") { e.preventDefault(); goTo(0); return; }
         if (e.key === "End") { e.preventDefault(); goTo(max - 1); return; }
     });

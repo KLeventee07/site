@@ -65,22 +65,37 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = links[index].href;
     };
 
-    document.addEventListener("keydown", (e) => {
-        if (isTextInputFocused()) return;
-        if (e.ctrlKey || e.altKey || e.metaKey) return;
-        const max = links.length;
-        if (max === 0) return;
-        const isTopRowDigit = e.key >= "1" && e.key <= "8";
-        const isNumpadDigit = e.code && e.code.startsWith("Numpad") && /^[1-8]$/.test(e.key);
-        if (isTopRowDigit || isNumpadDigit) {
-            const index = parseInt(e.key, 10) - 1;
-            if (links[index]) { e.preventDefault(); goTo(index); return; }
-        }
-        if (e.key === rightKey) { e.preventDefault(); goTo((Math.max(activeIndex, 0) + 1) % max); return; }
-        if (e.key === leftKey) { e.preventDefault(); goTo((Math.max(activeIndex, 0) - 1 + max) % max); return; }
-        if (e.key === "Home") { e.preventDefault(); goTo(0); return; }
-        if (e.key === "End") { e.preventDefault(); goTo(max - 1); return; }
-    });
+document.addEventListener("keydown", (e) => {
+    if (isTextInputFocused()) return;
+    if (e.ctrlKey || e.altKey || e.metaKey) return;    
+    const max = links.length;
+    if (max === 0) return;
+    const isMenuFocused = menu.contains(document.activeElement);
+    if (!isMenuFocused) return; 
+    const isTopRowDigit = e.key >= "1" && e.key <= "8";
+    const isNumpadDigit = e.code && e.code.startsWith("Numpad") && /^[1-8]$/.test(e.key);
+    if (isTopRowDigit || isNumpadDigit) {
+        const index = parseInt(e.key, 10) - 1;
+        if (links[index]) { 
+            e.preventDefault(); 
+            goTo(index); 
+            return; 
+        }
+    }
+    const safeIndex = activeIndex >= 0 ? activeIndex : 0;
+    if (e.key === rightKey) { 
+        e.preventDefault(); 
+        goTo((safeIndex + 1) % max); 
+        return; 
+    }
+    if (e.key === leftKey) { 
+        e.preventDefault(); 
+        goTo((safeIndex - 1 + max) % max); 
+        return; 
+    }
+    if (e.key === "Home") { e.preventDefault(); goTo(0); return; }
+    if (e.key === "End") { e.preventDefault(); goTo(max - 1); return; }
+});
     let lastY = window.scrollY || 0;
     let ticking = false;
     let hover = false;

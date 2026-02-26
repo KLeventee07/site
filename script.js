@@ -13,27 +13,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const leftKey = isRTL ? "ArrowRight" : "ArrowLeft";
     const rightKey = isRTL ? "ArrowLeft" : "ArrowRight";
     
-    // 🛠️ THE FIX: Aggressive and safe URL Normalization
+    // 🚀 THE ULTIMATE FIX: The "Phantom Extension" Killer
     const normalizePath = (urlStr) => {
         try {
             const url = new URL(urlStr, window.location.href);
-            
-            // Ignore external links entirely
             if (url.origin !== window.location.origin) return null;
             
-            let p = url.pathname;
+            let p = url.pathname.toLowerCase();
             
-            // Aggressively strip index.html from the end
-            p = p.replace(/\/index\.html$/, "");
+            // 1. Forcefully rip off the .html extension if it exists
+            p = p.replace(/\.html$/, "");
             
-            // Strip any trailing slashes to ensure consistent matching, unless it's the root "/"
+            // 2. Erase /index so the homepage matches perfectly
+            p = p.replace(/\/index$/, "");
+            
+            // 3. Shave off trailing slashes (unless it's the root domain)
             if (p.length > 1 && p.endsWith("/")) {
                 p = p.slice(0, -1);
             }
             
+            // If the path became empty, it means we are at the root "/"
             return p || "/";
         } catch (error) {
-            // Failsafe for invalid URLs
             return null; 
         }
     };
@@ -50,8 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         
+        // Debugging log: You will see it match perfectly in your F12 Console
+        console.log(`Comparing: Current [${currentPath}] vs Link [${linkPath}]`);
+        
         if (linkPath === currentPath) {
-            // Clears any previously set active classes
             links.forEach((l) => { 
                 l.classList.remove("active"); 
                 l.removeAttribute("aria-current"); 
@@ -71,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (enableRovingTabindex) {
         links.forEach((l) => l.setAttribute("tabindex", "-1"));
         
-        // Only set activeIndex to 0 if we truly didn't find a matching page
         if (activeIndex >= 0) {
             links[activeIndex].setAttribute("tabindex", "0");
         } else {

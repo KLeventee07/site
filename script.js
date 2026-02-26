@@ -43,8 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const enableRovingTabindex = true;
     if (enableRovingTabindex) {
         links.forEach((l) => l.setAttribute("tabindex", "-1"));
-        if (activeIndex >= 0) links[activeIndex].setAttribute("tabindex", "0");
-        else { links[0].setAttribute("tabindex", "0"); activeIndex = 0; }
+        if (activeIndex >= 0) {
+            links[activeIndex].setAttribute("tabindex", "0");
+        } else {
+            links[0].setAttribute("tabindex", "0");
+        }
     }
     const isTextInputFocused = () => {
         const el = document.activeElement;
@@ -77,13 +80,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (e.key === rightKey) {
             e.preventDefault();
-            const currentIndex = activeIndex >= 0 ? activeIndex : 0;
+            // Find currently focused link or start from active/first
+            let currentIndex = links.findIndex(l => l === document.activeElement);
+            if (currentIndex === -1) currentIndex = activeIndex >= 0 ? activeIndex : 0;
             goTo((currentIndex + 1) % max);
             return;
         }
         if (e.key === leftKey) {
             e.preventDefault();
-            const currentIndex = activeIndex >= 0 ? activeIndex : 0;
+            // Find currently focused link or start from active/first
+            let currentIndex = links.findIndex(l => l === document.activeElement);
+            if (currentIndex === -1) currentIndex = activeIndex >= 0 ? activeIndex : 0;
             goTo((currentIndex - 1 + max) % max);
             return;
         }

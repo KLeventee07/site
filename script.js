@@ -81,12 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentIndex === -1) currentIndex = activeIndex >= 0 ? activeIndex : 0;
         if (e.key === rightKey) {
             e.preventDefault();
-            goTo((currentIndex + 1) % max).click();
+            links[(currentIndex + 1) % max].click();
             return;
         }
         if (e.key === leftKey) {
             e.preventDefault();
-            goTo((currentIndex - 1 + max) % max).click();
+            links[(currentIndex - 1 + max) % max].click();
             return;
         }
         if (e.key === "Home") {

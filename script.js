@@ -67,6 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
         activeIndex = index;
     };
 
+    const navigateTo = (index) => {
+        if (!links[index]) return;
+        goTo(index);
+        // Navigate to the link's href
+        window.location.href = links[index].href;
+    };
+
     document.addEventListener("keydown", (e) => {
         if (isTextInputFocused()) return;
         if (e.ctrlKey || e.altKey || e.metaKey) return;
@@ -76,14 +83,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const isNumpadDigit = e.code && e.code.startsWith("Numpad") && /^[1-8]$/.test(e.key);
         if (isTopRowDigit || isNumpadDigit) {
             const index = parseInt(e.key, 10) - 1;
-            if (links[index]) { e.preventDefault(); goTo(index); return; }
+            if (links[index]) { e.preventDefault(); navigateTo(index); return; }
         }
         if (e.key === rightKey) {
             e.preventDefault();
             // Find currently focused link or start from active/first
             let currentIndex = links.findIndex(l => l === document.activeElement);
             if (currentIndex === -1) currentIndex = activeIndex >= 0 ? activeIndex : 0;
-            goTo((currentIndex + 1) % max);
+            navigateTo((currentIndex + 1) % max);
             return;
         }
         if (e.key === leftKey) {
@@ -91,11 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
             // Find currently focused link or start from active/first
             let currentIndex = links.findIndex(l => l === document.activeElement);
             if (currentIndex === -1) currentIndex = activeIndex >= 0 ? activeIndex : 0;
-            goTo((currentIndex - 1 + max) % max);
+            navigateTo((currentIndex - 1 + max) % max);
             return;
         }
-        if (e.key === "Home") { e.preventDefault(); goTo(0); return; }
-        if (e.key === "End") { e.preventDefault(); goTo(max - 1); return; }
+        if (e.key === "Home") { e.preventDefault(); navigateTo(0); return; }
+        if (e.key === "End") { e.preventDefault(); navigateTo(max - 1); return; }
     });
     let lastY = window.scrollY || 0;
     let ticking = false;
